@@ -1,0 +1,203 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/input"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignEnd="@+id/connect"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_weight="1"
+                android:visibility="invisible" />
+
+            <AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/Board"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp">
+
+                <Button
+                    android:id="@+id/button10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_x="11dp"
+                    android:layout_y="0dp"
+                    android:text="A" />
+
+                <Button
+                    android:id="@+id/button11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_x="218dp"
+                    android:layout_y="1dp"
+                    android:text="B" />
+
+                <Button
+                    android:id="@+id/buttonTurnLeft"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_x="12dp"
+                    android:layout_y="102dp"
+                    android:text="↻" />
+
+                <Button
+                    android:id="@+id/buttonCenter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_x="118dp"
+                    android:layout_y="51dp"
+                    android:text="◎" />
+
+                <Button
+                    android:id="@+id/buttonTurnRight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_x="218dp"
+                    android:layout_y="100dp"
+                    android:text="↺" />
+
+                <Button
+                    android:id="@+id/buttonLeft"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_x="12dp"
+                    android:layout_y="51dp"
+                    android:text="⇦" />
+
+                <Button
+                    android:id="@+id/buttonDown"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_x="117dp"
+                    android:layout_y="102dp"
+                    android:text="⇩" />
+
+                <Button
+                    android:id="@+id/buttonRight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_x="218dp"
+                    android:layout_y="50dp"
+                    android:text="⇨" />
+
+                <Button
+                    android:id="@+id/buttonUp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_x="118dp"
+                    android:layout_y="0dp"
+                    android:text="⇧" />
+
+                <SeekBar
+                    android:id="@+id/HBar"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_x="122dp"
+                    android:layout_y="242dp"
+                    tools:layout_editor_absoluteX="305dp"
+                    tools:layout_editor_absoluteY="93dp" />
+
+                <SeekBar
+                    android:id="@+id/VBar"
+                    android:layout_width="164dp"
+                    android:layout_height="wrap_content"
+                    android:layout_x="-20dp"
+                    android:layout_y="241dp"
+                    android:rotation="270"
+                    tools:layout_editor_absoluteX="45dp"
+                    tools:layout_editor_absoluteY="253dp" />
+
+                <EditText
+                    android:id="@+id/editText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_x="81dp"
+                    android:layout_y="346dp"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text=" "
+                    android:visibility="invisible"
+                    tools:layout_editor_absoluteX="97dp"
+                    tools:layout_editor_absoluteY="227dp" />
+
+            </AbsoluteLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/messages"
+                    android:layout_width="match_parent"
+                    android:layout_height="24dp"
+                    android:layout_below="@+id/input"
+                    android:layout_alignBottom="@+id/connect"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:fontFamily="monospace"
+                    android:gravity="bottom"
+                    android:scrollbarAlwaysDrawVerticalTrack="true"
+                    android:scrollbars="vertical" />
+
+                <Button
+                    android:id="@+id/btnSettings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:text="⚙" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/connect"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_weight="1"
+            android:focusable="true"
+            android:text="connect"
+            android:textColor="@color/colorContent" />
+    </LinearLayout>
+
+
+</RelativeLayout>
