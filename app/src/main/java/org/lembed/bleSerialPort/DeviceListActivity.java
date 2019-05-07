@@ -133,6 +133,8 @@ public class DeviceListActivity extends Activity {
             mScanning = true;
             mBluetoothAdapter.startLeScan(mLeScanCallback);
             cancelButton.setText(R.string.cancel);
+            // clear devicelist before scan
+            deviceList.clear();
         } else {
             mScanning = false;
             mBluetoothAdapter.stopLeScan(mLeScanCallback);

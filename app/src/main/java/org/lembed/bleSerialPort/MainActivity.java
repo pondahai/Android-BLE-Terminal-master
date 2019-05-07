@@ -120,7 +120,9 @@ public class MainActivity extends Activity implements BLeSerialPortService.Callb
     private final int REQUEST_DEVICE = 3;
     private final int REQUEST_ENABLE_BT = 2;
     private  int rindex = 0;
-
+//    private boolean receive_occur = true;
+//    private boolean receive_first_wait = false;
+    long beginMillis = System.currentTimeMillis();
     //
     SharedPreferences sharedpreferences;
 
@@ -434,27 +436,25 @@ public class MainActivity extends Activity implements BLeSerialPortService.Callb
             case MotionEvent.ACTION_MOVE:
 //                showMessage("touch move");
                 if (v.getId() == R.id.VBar) {
+                    if(System.currentTimeMillis() - beginMillis > 100){
                     if(old_vbar_progress != sb_vertical.getProgress()) {
                         old_vbar_progress = sb_vertical.getProgress();
-//                        if(vbar_delay_send_counter++ > 20) {
-//                            vbar_delay_send_counter = 0;
+                        beginMillis = System.currentTimeMillis();
+
                             serialPort.send("V" + sb_vertical.getProgress() + "\n");
-//                        writeLine("VBar = " + sb_vertical.getProgress());
-//                        }
                     }
                     return false;
-                }
+                }}
                 if (v.getId() == R.id.HBar) {
+                    if(System.currentTimeMillis() - beginMillis > 100){
                     if(old_hbar_progress != sb_horizontal.getProgress()) {
                         old_hbar_progress = sb_horizontal.getProgress();
-//                        if(hbar_delay_send_counter++ > 20) {
-//                            hbar_delay_send_counter = 0;
+                        beginMillis = System.currentTimeMillis();
+
                             serialPort.send("H" + sb_horizontal.getProgress() + "\n");
-//                        writeLine("HBar = " + sb_horizontal.getProgress());
-//                        }
                     }
                     return false;
-                }
+                }}
                 break;
 //            case MotionEvent.ACTION_CANCEL:
             case MotionEvent.ACTION_UP:
@@ -640,6 +640,7 @@ public class MainActivity extends Activity implements BLeSerialPortService.Callb
         String msg = rx.getStringValue(0);
         rindex = rindex + msg.length();
         writeLine("> " + rindex + ":" + msg);
+
     }
 
     @Override
